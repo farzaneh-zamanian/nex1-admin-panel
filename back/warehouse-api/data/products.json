@@ -1,0 +1,69 @@
+[
+  {
+    "id": "57c2db8e-c219-4f60-9473-888497ceef20",
+    "name": "دفتر",
+    "price": "100",
+    "quantity": "50",
+    "imageUrl": "/images/admin-picture.jpg"
+  },
+  {
+    "id": "696ab6b1-4960-4682-a4d0-ef9b65017dec",
+    "name": "کتاب",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "522d738c-846a-4b96-9327-1cb9512abaf5",
+    "name": "مبل",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "03f5a93d-de99-4200-bfac-38e6dd4a1024",
+    "name": "تخت خواب",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "a223f972-cf3a-43d1-981e-e2dbf8a79dfa",
+    "name": "ساعت",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "ad6256c4-3b3e-4173-80f2-ee7554c5ca0b",
+    "name": "موبایل",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "fb1d888b-e262-4d91-aa0d-136e20df61f7",
+    "name": "لپ تاپ ",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "dd6ea038-f255-4624-8ad4-f4876e9b53b1",
+    "name": "میز",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "bdf13681-3014-40f3-9af3-a2460dabf687",
+    "name": "کلید",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "78dda4eb-3973-4960-b10d-d272c906c6bb",
+    "name": "لیوان",
+    "price": "100",
+    "quantity": "50"
+  },
+  {
+    "id": "f6943f3d-1fdd-4547-9c30-ea0922c78c4c",
+    "name": "تی شرت",
+    "price": "100",
+    "quantity": "50"
+  }
+]
