@@ -32,6 +32,12 @@ function Header() {
                               <li>
                                     <Link href="/products">محصولات</Link>
                               </li>
+                              <li>
+                                    <Link href="/products">درباره ما</Link>
+                              </li>
+                              <li>
+                                    <Link href="/products">تماس با ما</Link>
+                              </li>
                         </ul>
 
                   </nav>

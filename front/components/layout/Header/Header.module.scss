@@ -4,19 +4,16 @@
 //?navbar
 //?registration button
 
-
-
-
 .headerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  padding:3rem;  
+  padding: 4rem;
   background-color: $color-bgLight;
-  border-radius:  2.5rem 2.5rem 0px 0px;
+  border-radius: 2.5rem 2.5rem 0px 0px;
   margin-top: 5rem;
 
-  // logo  
+  // logo
   .headerContainer__logo {
     justify-self: start;
   }
@@ -25,10 +22,19 @@
   .headerContainer__navbar {
     justify-self: center;
     font-size: 1.6rem;
-    color: $color-accent;
+
     ul {
       display: flex;
       gap: 1.5rem;
+      li{
+        transition: all 0.3s ease;
+        &:hover {
+          color: $color-accent;
+        }
+
+      }
+  
+     
     }
   }
 
@@ -36,20 +42,31 @@
   .headerContainer__iconContainer {
     justify-self: end;
     background-color: $color-bgLight;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: $color-accent;
     .iconContainer__adminIcon {
+      border: 1px solid $color-accent;
+      color: $color-accent;
+      padding: 1rem;
+      border-radius: 1rem;
+
       svg {
         font-size: 2rem;
         vertical-align: middle;
-        color: $color-textLight;
-        margin-right: 1rem;
       }
       span {
-        color: $color-textLight;
+        color: $color-accent;
+
         margin-right: 0.5rem;
         font-size: 1.3rem;
+      }
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: $color-accent;
+        svg {
+          color: $color-textLight;
+        }
+        span {
+          color: $color-textLight;
+        }
       }
     }
   }

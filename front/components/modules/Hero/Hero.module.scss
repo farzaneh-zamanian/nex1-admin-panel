@@ -1,0 +1,92 @@
+@import "../../../src/styles/variables";
+.heroContainer {
+      padding: 0 4rem 4rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      height: 45rem;
+      .heroContainer__featuresdescription {
+        height: 100%;
+        flex: 1;
+        //     border: 1px solid $color-accent;
+    
+        .heroContainer__title {
+          margin-top: 3rem;
+    
+          font-size: 1.8rem;
+          text-align: justify;
+          line-height: 2.5;
+          margin-left: 4rem;
+          width: 100%;
+        }
+        .heroContainer__heroDescription {
+          margin-top: 3rem;
+    
+          font-size: 1.4rem;
+          line-height: 2.5;
+          padding: 0.5rem;
+          text-align: justify;
+        }
+        .heroContainer__heroButtonsGroup {
+          margin-top: 3rem;
+          width: 100;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          & > a {
+            width: 12rem;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+          }
+    
+          .heroButtonsGroup__productBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $color-text-title;
+            gap: 1rem;
+            svg {
+              font-size: 2rem;
+            }
+            background-color: $color-text-title;
+            color: $color-textLight;
+            transition: all 0.3s ease;
+            &:hover {
+              //   border: 1px solid $color-text-title;
+              color: $color-text-title;
+              background-color: $color-bgLight;
+            }
+          }
+          .heroButtonsGroup__shoppingBtn {
+            border: 1px solid $color-text-title;
+            color: $color-text-title;
+            transition: all 0.3s ease;
+            &:hover {
+              background-color: $color-text-title;
+              color: $color-textLight;
+            }
+          }
+        }
+      }
+    
+      .heroContainer__gallery {
+        background-color: blue;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 2.5rem;
+        background-size: cover;
+        background-position: center;
+        flex: 1;
+        img {
+          max-width: 100%;
+          object-fit: cover;
+    
+        }
+      }
+    }
+    
