@@ -1,0 +1,56 @@
+@import "../../../src/styles/variables";
+
+//?logo
+//?navbar
+//?registration button
+
+
+
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding:3rem;  
+  background-color: $color-bgLight;
+  border-radius:  2.5rem 2.5rem 0px 0px;
+  margin-top: 5rem;
+
+  // logo  
+  .headerContainer__logo {
+    justify-self: start;
+  }
+
+  // navbar
+  .headerContainer__navbar {
+    justify-self: center;
+    font-size: 1.6rem;
+    color: $color-accent;
+    ul {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+
+  //registration button
+  .headerContainer__iconContainer {
+    justify-self: end;
+    background-color: $color-bgLight;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: $color-accent;
+    .iconContainer__adminIcon {
+      svg {
+        font-size: 2rem;
+        vertical-align: middle;
+        color: $color-textLight;
+        margin-right: 1rem;
+      }
+      span {
+        color: $color-textLight;
+        margin-right: 0.5rem;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

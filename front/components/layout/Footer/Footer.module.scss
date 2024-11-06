@@ -1,0 +1,12 @@
+@import "../../../src/styles/variables";
+
+.footerContainer {
+  text-align: center;
+  padding: 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: $color-accent;
+  color: $color-text-paragraphs;
+ 
+}
