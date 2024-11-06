@@ -1,0 +1,56 @@
+@import "variables";
+
+:root {
+  font-family: "vazir", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+// to use rem as unit in the project with Factor 10
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+body {
+  direction: rtl;
+  margin: auto;
+  max-width: 140rem;
+  min-height: 100vh;
+  background-color: $color-bgBody;
+  overflow-x: hidden;
+  color: $color-text-paragraphs;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-text-title;
+}
+button,
+input,
+select {
+  font-family: inherit;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
