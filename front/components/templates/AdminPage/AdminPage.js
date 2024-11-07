@@ -3,16 +3,28 @@ import styles from "./AdminPage.module.scss"
 import { VscTools } from "react-icons/vsc";
 import ProductItem from '../../modules/ProductItem/ProductItem';
 import useModalContext from '../../../hooks/useModalContext';
+import ModalContainer from '../../modules/Modal/ModalContainer/ModalContainer';
+import { useGetAllProduct } from '../../../hooks/queries';
 
 
-function AdminPage({ products }) {
-      const {modalType,openModal}=useModalContext();
+function AdminPage({products} ) {
+       //REACT QUERY - GET DATA
+//   const { data:products, isPending, error } = useGetAllProduct();
+    // Handle loading and error states
+//     if(!products) return <p>loading</p>
+//     if (isPending) {
+//       return <p>Loading products...</p>;
+//   }
+
+//   if (error) {
+//       return <p>Error fetching products: {error.message}</p>;
+//   }
+      const { modalType, openModal } = useModalContext();
       return (
             <section className={styles.containerProductManagement}>
                   {/* MANAGEMENT */}
                   <div className={styles.containerProductManagement__title}>
                         <p>
-
                               <VscTools />
                               <span>مدیریت کالا</span>
                         </p>
@@ -53,13 +65,11 @@ function AdminPage({ products }) {
                                     {products.map((product, index) => (
                                           <ProductItem key={product.id} product={product} index={index} />
                                     ))}
-
-
-
                               </tbody>
                         </table>
                   </div>
                   {/* RENDER THE MODAL */}
+                  {modalType && <ModalContainer />}
             </section>
       )
 }

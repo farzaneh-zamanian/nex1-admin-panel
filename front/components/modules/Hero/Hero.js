@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./Hero.module.scss"
 import Link from 'next/link'
 import { MdOutlineArrowRightAlt } from "react-icons/md";
+import Image from 'next/image';
 
 
 function Hero() {
@@ -38,7 +39,7 @@ function Hero() {
 
 
                   <div className={styles.heroContainer__gallery}>
-                        <img src="../../images/hero.jpg" className={styles.heroContainer__img} />
+                        <img src="../../images/hero.jpg" className={styles.heroContainer__img} alt='hero-picture'/>
                   </div>
 
 
