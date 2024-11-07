@@ -2,9 +2,11 @@ import React from 'react'
 import styles from "./AdminPage.module.scss"
 import { VscTools } from "react-icons/vsc";
 import ProductItem from '../../modules/ProductItem/ProductItem';
+import useModalContext from '../../../hooks/useModalContext';
 
 
 function AdminPage({ products }) {
+      const {modalType,openModal}=useModalContext();
       return (
             <section className={styles.containerProductManagement}>
                   {/* MANAGEMENT */}
@@ -17,7 +19,7 @@ function AdminPage({ products }) {
                         <div>
                               <button
                                     className={styles.containerProductManagement__createProBtn}
-                                    onClick={() => console.log("add product")}
+                                    onClick={() => openModal("addPrroduct")}
                               >
                                     افزودن محصول
                               </button>

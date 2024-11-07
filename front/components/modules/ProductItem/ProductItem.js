@@ -2,8 +2,12 @@ import styles from "./ProductItem.module.scss"
 import { modifiedString } from '../../../utils/helpers'
 import { AiTwotoneDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
+import useModalContext from "../../../hooks/useModalContext";
+import ModalContainer from "../Modal/ModalContainer/ModalContainer";
 
 function ProductItem({ product, index }) {
+  const { modalType, openModal } = useModalContext();
+
   return (
     // PRODUCT INFO ROW
     <tr className={styles.containerProductInfo}>
@@ -20,19 +24,21 @@ function ProductItem({ product, index }) {
       <td className={styles.containerProductInfo__actionBtns}>
         <button
           className={styles.actionBtns__editBtn}
-          onClick={() => console.log("Edit")}
+          onClick={() => openModal("editProduct", product)}
         >
           <FaRegEdit />
         </button>
         <button
           className={styles.actionBtns__deleteBtn}
-          onClick={() => console.log("delete")}
+          onClick={() =>openModal("deleteProduct", product.id)}
 
         >
           <AiTwotoneDelete />
         </button>
       </td>
-      {/* RENDET THE MODAL  */}
+      {/* RENDER THE MODAL  */}
+      {modalType && <ModalContainer />}
+
 
     </tr>
   )
