@@ -1,20 +1,17 @@
-// import { useMutation, useQueryClient } from "@tanstack/react-query";
-// //DELETE - DELET A PRODUCT
-// const useDeleteProduct = () => {
-//       const queryClient = useQueryClient();
-//       const mutationFn = async (id) => {
-//           const response = await api.delete(`/products/${id}`);
-//           return response.data
-//       }
-//       const onSuccess = async () => {
-//           await queryClient.invalidateQueries("all-products");
-//       };
-//       return useMutation({ mutationFn, onSuccess });
-//   }
-  
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { api } from "../configs/api";
 
-//   export {
+// POST - REGISTRATION
+const useRegister = () => {
+      const mutationFn = async (data) => {
+            const response = await api.post("/auth/register", data);
+            return response.data;
+      };
+      return useMutation({ mutationFn });
+}
 
-//       useDeleteProduct,
-   
-//   }
+
+export {
+      useRegister,
+ 
+  }

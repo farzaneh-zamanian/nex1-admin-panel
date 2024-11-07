@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookie";
 
 //API
 const api = axios.create({
@@ -10,11 +11,13 @@ const api = axios.create({
 
 // REQUEST INTERCEPTOR
 api.interceptors.request.use((request) => {
-
+      const token = getCookie("token");
+      if (token) {
+            request.headers["Authorization"] = `Bearer ${token}`; // Set Authorization header if token exists
+      }
       return request;
 },
       (error) => {
-
             return Promise.reject(error); // Handle request errors
       });
 
