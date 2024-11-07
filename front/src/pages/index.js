@@ -1,15 +1,13 @@
 import Link from "next/link";
-import styles from "../styles/Home.module.scss"
-import Hero from "../../components/modules/Hero/Hero";
+import HomePage from "../../components/templates/HomePage/HomePage";
 
 
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HomePage />
 
-      <section className={styles.homePageContainer}></section>
 
     </>
 

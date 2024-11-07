@@ -1,0 +1,33 @@
+@import "../../../src/styles/variables";
+
+.containerProductInfo {
+  .containerProductInfo__actionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+    button {
+      background: none;
+      svg {
+        font-size: 2rem;
+      }
+    }
+
+    .actionBtns__editBtn {
+      svg {
+        color: $color-accent;
+
+        &:hover {
+            opacity: 0.6;
+          }
+      }
+    }
+    .actionBtns__deleteBtn svg {
+      color: #f43f5e;
+      &:hover {
+            opacity: 0.6;
+          }
+    }
+  }
+}
+
