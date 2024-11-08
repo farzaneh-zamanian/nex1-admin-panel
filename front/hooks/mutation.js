@@ -36,7 +36,7 @@ const useCreateProduct = () => {
 const useUpdateProduct = () => {
       const queryClient = useQueryClient();
       const mutationFn = async (data) => {
-            const response = await api.put(`/products/${data.id}`, data);            
+            const response = await api.put(`/products/${data.id}`, data);
             return response.data
       }
       const onSuccess = async () => {
@@ -48,11 +48,23 @@ const useUpdateProduct = () => {
       return useMutation({ mutationFn, onSuccess, onError });
 
 }
+//DELETE - DELET A PRODUCT
+const useDeleteProduct = () => {
+      const queryClient = useQueryClient();
+      const mutationFn = async (id) => {
+            const response = await api.delete(`/products/${id}`);
+            return response.data
+      }
+      const onSuccess = async () => {
+            await queryClient.invalidateQueries("all-products");
+      };
+      return useMutation({ mutationFn, onSuccess });
+}
 
 
 
 
 export {
-      useRegister, useLogin, useCreateProduct, useUpdateProduct
+      useRegister, useLogin, useCreateProduct, useUpdateProduct, useDeleteProduct
 
 }
