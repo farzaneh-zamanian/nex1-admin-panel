@@ -1,9 +1,7 @@
-import React from 'react'
+import styles from "./ModalContent.module.scss";
 
 function EditProductForm() {
-  return (
-    <div>EditProductForm</div>
-  )
+  return <div>EditProductForm</div>;
 }
 
-export default EditProductForm
+export default EditProductForm;

@@ -1,79 +1,86 @@
+//?create and edit component
+//?delete component
+
+
+@import "../../../../src/styles/variables";
+
+// create and edit componen
 .containerModal {
   width: 46rem;
   height: 45rem;
   border-radius: 3rem;
   padding: 2rem;
-  background-color: var(--color-light);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .containerModal__title {
-  color: var(--color-text);
+  color: $color-accent;
   font-weight: 500;
   font-size: 2rem;
   line-height: 3.2rem;
   text-align: center;
 }
 .containerModal__inputsGroup {
-  width: 39rem;
+  width: 35rem;
   margin-bottom: 2.5rem;
+  .containerModal__inputsGroup__input {
+    margin-bottom: 2rem;
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+    input {
+      width: 100%;
+      height: 4.2rem;
+      display: block;
+      background-color: #f2f2f2;
+      border-radius: 0.8rem;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      &::placeholder {
+        color: $color-placeholder;
+        font-size: 1.4rem;
+        font-weight: 300;
+        line-height: 2.2rem;
+      }
+    }
+  }
 }
-.containerModal__inputsGroup .containerModal__inputsGroup__input {
-  margin-bottom: 2rem;
-}
-.containerModal__inputsGroup .containerModal__inputsGroup__input label {
-  display: block;
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-  color: var(--color-text);
-}
-.containerModal__inputsGroup .containerModal__inputsGroup__input input {
-  width: 100%;
-  height: 4.2rem;
-  display: block;
-  background-color: #f2f2f2;
-  border-radius: 0.8rem;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-}
-.containerModal__inputsGroup
-  .containerModal__inputsGroup__input
-  input::placeholder {
-  font-size: 1.4rem;
-  font-weight: 300;
-  line-height: 2.2rem;
-  color: var(--color-placeholder);
-}
+
 .containerModal__ButtonsGroup {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 39rem;
-}
-.containerModal__ButtonsGroup button {
-  width: 18rem;
-  height: 4.2rem;
-  border-radius: 1rem;
-  font-weight: 500;
-  font-size: 1.4rem;
-  transition: all 0.5s ease;
-}
-.containerModal__ButtonsGroup .containerModal__ButtonsGroup__acceptBtn {
-  background-color: var(--color-bg-button);
-  color: var(--color-light);
+  width: 35rem;
+  button {
+    width: 16rem;
+    height: 4.2rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    transition: all 0.5s ease;
+  }
+  .containerModal__ButtonsGroup__acceptBtn {
+    color: $color-textLight;
+    background-color: $color-accent;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .containerModal__ButtonsGroup__cancelBtn {
+    color: rgba(40, 40, 40, 0.8);
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 
-.containerModal__ButtonsGroup .containerModal__ButtonsGroup__cancelBtn {
-  color: rgba(40, 40, 40, 0.8);
-}
-.containerModal__ButtonsGroup .containerModal__ButtonsGroup__acceptBtn:hover,
-.containerModal__ButtonsGroup__cancelBtn:hover {
-  opacity: 0.6;
-}
 
+// delete component
 .containerDeleteConfirmation {
   width: 40rem;
   height: 25rem;
@@ -91,7 +98,7 @@
 .containerDeleteConfirmation__content {
   font-weight: 400;
   font-size: 1.5rem;
-  color: var(--color-text);
+  /* color: var(--color-text); */
 }
 .containerDeleteConfirmation__btnGroup {
   width: 30rem;
@@ -112,7 +119,7 @@
 .containerDeleteConfirmation__btnGroup
   .containerDeleteConfirmation__btnGroup__btnAccept {
   background-color: rgba(244, 63, 94, 1);
-  color: var(--color-light);
+  /* color: var(--color-light); */
 }
 .containerDeleteConfirmation__btnGroup
   .containerDeleteConfirmation__btnGroup__btnAccept:hover {

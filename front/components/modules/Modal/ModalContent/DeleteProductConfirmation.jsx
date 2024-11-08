@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from "./ModalContent.module.scss";
 
 function DeleteProductConfirmation() {
   return (

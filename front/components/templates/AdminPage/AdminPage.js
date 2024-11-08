@@ -31,7 +31,7 @@ function AdminPage({products} ) {
                         <div>
                               <button
                                     className={styles.containerProductManagement__createProBtn}
-                                    onClick={() => openModal("addPrroduct")}
+                                    onClick={() => openModal("addProduct")}
                               >
                                     افزودن محصول
                               </button>
