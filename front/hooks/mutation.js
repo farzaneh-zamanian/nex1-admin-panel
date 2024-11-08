@@ -60,11 +60,29 @@ const useDeleteProduct = () => {
       };
       return useMutation({ mutationFn, onSuccess });
 }
+//DELETE - DELET ALL PRODUCT
+const useDeleteAllProducts = () => {
+      const queryClient = useQueryClient();
+      const mutationFn = async (data) => {
+          const response = await api.delete("/products",{data});
+          return response.status;
+      };
+      const onSuccess = async () => {
+          await queryClient.invalidateQueries("all-products");
+      };
+      return useMutation({ mutationFn, onSuccess });
+  }
+  
 
 
 
 
 export {
-      useRegister, useLogin, useCreateProduct, useUpdateProduct, useDeleteProduct
+      useRegister,
+       useLogin,
+        useCreateProduct,
+         useUpdateProduct,
+          useDeleteProduct,
+          useDeleteAllProducts
 
 }
