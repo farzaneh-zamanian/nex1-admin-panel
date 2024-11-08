@@ -1,8 +1,9 @@
 import styles from "./ModalContent.module.scss";
 
-function DeleteProductConfirmation() {
+function DeleteProductConfirmation({id}) {
   return (
-    <div>DeleteProductConfirmation</div>
+    <></>
+    // <div>{id}</div>/
   )
 }
 

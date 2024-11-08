@@ -24,20 +24,20 @@ function ProductItem({ product, index }) {
       <td className={styles.containerProductInfo__actionBtns}>
         <button
           className={styles.actionBtns__editBtn}
-          onClick={() => openModal("editProduct", product)}
-        >
+          onClick={() => openModal("editProduct",product)}        >
+        
           <FaRegEdit />
         </button>
         <button
           className={styles.actionBtns__deleteBtn}
-          onClick={() =>openModal("deleteProduct", product.id)}
+          onClick={() =>openModal("deleteProduct",product)}
 
         >
           <AiTwotoneDelete />
         </button>
       </td>
       {/* RENDER THE MODAL  */}
-      {modalType && <ModalContainer />}
+      {modalType && <ModalContainer product={product} />}
 
 
     </tr>

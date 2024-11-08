@@ -32,9 +32,27 @@ const useCreateProduct = () => {
       return useMutation({ mutationFn, onSuccess });//onSuccess run when the result return
 }
 
+//PUT - EDIT PRODUCT
+const useUpdateProduct = () => {
+      const queryClient = useQueryClient();
+      const mutationFn = async (data) => {
+            const response = await api.put(`/products/${data.id}`, data);            
+            return response.data
+      }
+      const onSuccess = async () => {
+            await queryClient.invalidateQueries("all-products");
+      };
+      const onError = (error) => {
+            console.error("Error updating product:", error);
+      }
+      return useMutation({ mutationFn, onSuccess, onError });
+
+}
+
+
 
 
 export {
-      useRegister, useLogin, useCreateProduct
+      useRegister, useLogin, useCreateProduct, useUpdateProduct
 
 }

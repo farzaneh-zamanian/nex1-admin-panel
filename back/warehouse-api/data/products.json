@@ -3,7 +3,7 @@
     "id": "57c2db8e-c219-4f60-9473-888497ceef20",
     "name": "دفتر",
     "price": "100",
-    "quantity": "50",
+    "quantity": "500",
     "imageUrl": "/images/admin-picture.jpg"
   },
   {
@@ -71,5 +71,11 @@
     "name": "دفترچه یادداشت",
     "price": "66",
     "quantity": "66"
+  },
+  {
+    "id": "8347d085-8b7d-4b30-8d82-26ed09f82439",
+    "name": "لازانیا",
+    "price": "2",
+    "quantity": "5"
   }
 ]

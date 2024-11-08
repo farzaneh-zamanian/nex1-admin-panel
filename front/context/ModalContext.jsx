@@ -4,25 +4,27 @@ export const ModalContext = createContext();
 function ModalProvider({ children }) {
   //STATE- MODAL
   const [modalType, setModalType] = useState(null);
-  const [currentProduct, setCurrentProduct] = useState(null);
+  const [modalProduct, setModalProduct] = useState(null);
 
 
   //ACTION- OPEN MODAL
-  const openModal = (type, product = null) => {
+  const openModal = (type,  product = null) => {
     setModalType(type);
-    setCurrentProduct(product);
+    setModalProduct(product);
+
   };
 
   //ACTION- CLOSE MODAL
   const closeModal = () => {
     setModalType(null); // Clear the modal type
-    setCurrentProduct(null); // Clear the current product
+    // setModalProduct(null);
+
   };
   return (
     <ModalContext.Provider
       value={{
         modalType,
-        currentProduct,
+        modalProduct,
         setModalType,
         openModal,
         closeModal,
