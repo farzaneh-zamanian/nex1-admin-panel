@@ -1,8 +1,9 @@
 import React from 'react'
+import LoginPage from '../../components/templates/LoginPage/LoginPage'
 
 function LoginIndex() {
   return (
-    <div>LoginIndex</div>
+    <LoginPage />
   )
 }
 

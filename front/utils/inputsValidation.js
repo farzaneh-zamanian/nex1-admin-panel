@@ -22,7 +22,7 @@ export const validatePassword = (name, value) => {
       }
       // Check for minimum length
       if (value.length < 4) {
-            return "Password must be at least 4 characters long.";
+            return "پسورد باید حداقل بیشتز از 4 کاراکتر باشد ";
       }
 
       // //complexity
@@ -53,6 +53,6 @@ export const validateInput = (name, value) => {
             case "password":
                   return validatePassword(name, value);
             default:
-                  return ""; 
+                  return "";
       }
 }

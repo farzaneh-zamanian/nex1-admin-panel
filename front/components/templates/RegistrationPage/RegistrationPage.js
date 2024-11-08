@@ -91,7 +91,7 @@ function RegistrationPage() {
                               value={form.username}
                               onChange={changeHandler}
                         />
-                        {errors.username && <span>{errors.username}</span>}
+                        {errors.username && <span className={RegistrationPagestyles.validationError}>{errors.username}</span>}
                         <input
                               type="password"
                               placeholder="رمز عبور"
@@ -99,7 +99,7 @@ function RegistrationPage() {
                               value={form.password}
                               onChange={changeHandler}
                         />
-                        {errors.password && <span>{errors.password}</span>}
+                        {errors.password && <span className={RegistrationPagestyles.validationError}>{errors.password}</span>}
 
                         <input
                               type="password"
@@ -108,7 +108,7 @@ function RegistrationPage() {
                               value={form.confirmedPassword}
                               onChange={changeHandler}
                         />
-                        {errors.confirmedPassword && <span>{errors.confirmedPassword}</span>}
+                        {errors.confirmedPassword && <span className={RegistrationPagestyles.validationError}>{errors.confirmedPassword}</span>}
 
                   </div>
                   <button
@@ -124,7 +124,7 @@ function RegistrationPage() {
 
                         className={formStyles.containerLoginPage__accountCreation}
                   >
-                        <Link href="/"> حساب کاربردی دارید؟</Link>
+                        <Link href="/login"> حساب کاربردی دارید؟</Link>
 
 
                   </p>

@@ -10,8 +10,17 @@ const useRegister = () => {
       return useMutation({ mutationFn });
 }
 
+// POST - LOGIN
+const useLogin = () => {
+      const mutationFn = async (data) => {
+            const response = await api.post("/auth/login", data);
+            return response.data;
+      };
+      return useMutation({ mutationFn });
+}
+
 
 export {
-      useRegister,
- 
-  }
+      useRegister, useLogin
+
+}
