@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Header.module.scss"
 import Link from 'next/link'
 import { RiAdminLine } from "react-icons/ri";
@@ -6,9 +6,22 @@ import { RxEnter } from "react-icons/rx";
 import { SlBasket } from "react-icons/sl";
 
 import Image from 'next/image';
+import { getCookie } from '../../../utils/cookie';
 
 
 function Header() {
+      //STATE - lOGIN CHECKING 
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+      //STATE - CHECK IF THE TOKEN EXISTANCE IN COOKIE
+      useEffect(() => {
+            const token = getCookie("token");
+            if (token) {
+                  setIsLoggedIn(true);
+            } else {
+                  setIsLoggedIn(false);
+            }
+      }, []);
+
       return (
             <header className={styles.headerContainer}>
 
@@ -44,17 +57,15 @@ function Header() {
 
                   {/* REGISTRATION BUTTONS */}
                   <div className={styles.headerContainer__iconContainer}>
-                        <Link href="/admin" className={styles.iconContainer__adminIcon}>
+                        {isLoggedIn ? (<Link href="/admin" className={styles.iconContainer__adminIcon}>
                               <RiAdminLine />
-                        </Link>
-
-                        <Link href="/login" className={styles.iconContainer__adminIcon}>
+                        </Link>) : (<Link href="/login" className={styles.iconContainer__adminIcon}>
                               <span>ورود</span>
                               <RxEnter />
-                        </Link>
+                        </Link>)}
 
                         <Link href="/checkOut" className={styles.iconContainer__adminIcon}>
-                         
+
                               <SlBasket />
 
                         </Link>
