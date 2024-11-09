@@ -6,11 +6,10 @@ import useModalContext from '../../../hooks/useModalContext';
 import ModalContainer from '../../modules/Modal/ModalContainer/ModalContainer';
 import { useGetAllProduct } from '../../../hooks/queries';
 import { useDeleteAllProducts } from '../../../hooks/mutation';
-import SearchBox from '../../modules/SearchBox/SearchBox';
-import { useRouter } from 'next/router';
 import SearchBar from '../../modules/SearchBox/SearchBar';
 import useDebounce from '../../../hooks/useDebounce';
 import { useQueryClient } from '@tanstack/react-query';
+import Pagination from '../../modules/Pagination/Pagination';
 
 
 function AdminPage() {
@@ -19,6 +18,7 @@ function AdminPage() {
       const [page, setPage] = useState(1);//Changable page for pagination
       const [limit] = useState(10); // Fixed limit for pagination
       const [selectedProsIds, setSelectedProsIds] = useState([]);
+
 
       // DEBOUNCE SEARCH VALUE
       const debouncedSearch = useDebounce(search, 300); // Change to 300ms
@@ -39,8 +39,8 @@ function AdminPage() {
       //REACT QUERY - FETCH DATA
       const { data: products, isPending, error } = useGetAllProduct(parameters);
       // Handle loading and error states
-      if (products && products.data.length === 0) return <p>No products found for "{debouncedSearch}".</p>;
 
+      if (products && products.data.length === 0) return <p>No products found for "{debouncedSearch}".</p>;
       if (isPending) return <p>Loading products...</p>;
       if (error) return <p>Error fetching products: {error.message}</p>;
       const queryClient = useQueryClient(); // Initialize queryClient
@@ -122,7 +122,7 @@ function AdminPage() {
                         {modalType && <ModalContainer />}
                   </section>
                   {/* PAGINATION */}
-
+                  <Pagination  page={page} setPage={setPage} totalProducts={products.totalProducts} limit={limit}/>
             </>
 
       )
