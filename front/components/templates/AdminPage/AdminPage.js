@@ -45,6 +45,7 @@ function AdminPage() {
       if (error) return <p>Error fetching products: {error.message}</p>;
       const queryClient = useQueryClient(); // Initialize queryClient
 
+      
 
       //REACT QUERY - DELTE SELECTED PRODUCTS
       const deleteCheckedProductHandler = () => {
@@ -65,6 +66,8 @@ function AdminPage() {
             <>
                   {/* SEARCH COMPONENT */}
                   <SearchBar search={search} setSearch={setSearch} />
+
+
                   {/* MANAGEMENT PRODUCTS LIST*/}
                   <section className={styles.containerProductManagement}>
                         {/* CONTROLS ON PRODUCTS */}
@@ -121,8 +124,9 @@ function AdminPage() {
                         {/* RENDER THE MODAL */}
                         {modalType && <ModalContainer />}
                   </section>
-                  {/* PAGINATION */}
-                  <Pagination  page={page} setPage={setPage} totalProducts={products.totalProducts} limit={limit}/>
+
+                  {/* PAGINATION COMPONENT */}
+                  <Pagination page={page} setPage={setPage} totalProducts={products.totalProducts} limit={limit} />
             </>
 
       )

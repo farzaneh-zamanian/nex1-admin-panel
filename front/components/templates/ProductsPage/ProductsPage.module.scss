@@ -1,0 +1,16 @@
+@import "../../../src/styles/variables";
+.productsContainer {
+  margin: 0 6rem;
+  .productsContainer__title {
+    border-bottom: 5px solid $color-accent;
+    width: fit-content;
+    margin-bottom: 5rem;
+    font-size: 1.8rem;
+  }
+
+  .productsContainer__sub {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
