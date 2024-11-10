@@ -32,10 +32,14 @@ function AdminPage() {
 
       // PARAMETER TO PASS TO THE useGetAllProduct
       const parameters = {
+            // name: debouncedSearch || "",
             name: debouncedSearch || "",
             page: page,
             limit: limit
       };
+
+      const queryClient = useQueryClient(); // Initialize queryClient
+
 
       //REACT QUERY - FETCH DATA
       const { data: products, isPending, error } = useGetAllProduct(parameters);
@@ -56,10 +60,11 @@ function AdminPage() {
             }
       }, [error]);
 
-      if (products && products.data.length === 0) return <p>No products found for "{debouncedSearch}".</p>;
+      // if (products && products.data.length === 0) return <p>No products found for "{debouncedSearch}".</p>;
+      if (products && products.data.length === 0) return <p>No products found for &quot;{debouncedSearch}&quot;.</p>;
+
       if (isPending) return <p>Loading products...</p>;
       if (error) return <p>Error fetching products: {error.message}</p>;
-      const queryClient = useQueryClient(); // Initialize queryClient
 
 
 

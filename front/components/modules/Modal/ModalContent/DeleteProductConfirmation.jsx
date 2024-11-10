@@ -2,6 +2,8 @@ import { useDeleteProduct } from "../../../../hooks/mutation";
 import useModalContext from "../../../../hooks/useModalContext";
 import notifications from "../../../../utils/toastNotifications";
 import styles from "./ModalContent.module.scss";
+import Image from 'next/image'
+
 
 function DeleteProductConfirmation({ id }) {
   //CONTEXT
@@ -24,11 +26,18 @@ function DeleteProductConfirmation({ id }) {
 
   return (
     <div className={styles.containerDeleteConfirmation}>
-      <img
+      {/* <img
         className={styles.containerDeleteConfirmation__image}
         src="/images/logoMain.svg"
         alt="Company Logo"
-      />
+      /> */}
+                     <Image
+      className={styles.containerDeleteConfirmation__image}
+      src="/images/logoMain.svg"
+      alt="Company Logo"
+      width={400} 
+      height={250} 
+    />
 
       <p className={styles.containerDeleteConfirmation__content}>
         آیا از حذف این محصول اطمینان دارید ؟

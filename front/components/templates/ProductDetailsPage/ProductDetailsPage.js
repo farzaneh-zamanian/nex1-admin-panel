@@ -6,6 +6,8 @@ import { IoMdPricetag } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Image from 'next/image'
+
 
 function ProductDetailsPage(props) {
       const router = useRouter()
@@ -42,7 +44,12 @@ function ProductDetailsPage(props) {
 
                   </div>
                   <div className={styles.imageContainer}>
-                        <img src="/images/hero.jpg" alt={name} />
+                        {/* <img src="/images/hero.jpg" alt={name} /> */}
+                        <Image
+                              src="/images/hero.jpg" alt={name} 
+                              width={400}
+                              height={250}
+                        />
                         <button onClick={handleBackClick}>
                               <FaArrowLeft />
                               بازگشت

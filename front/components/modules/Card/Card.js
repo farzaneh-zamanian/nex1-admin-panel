@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./Card.module.scss"
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 import { TbListDetails } from "react-icons/tb";
@@ -20,13 +21,18 @@ function Card(props) {
 
       // ACTION - CARD BUTTON ACTIONS
       const cardBtnHandler = (action) => {
-            dispatch(action( props ));
+            dispatch(action(props));
 
       };
       return (
             <div className={styles.cardContainer}>
-                  <img src="./images/hero.jpg" alt={name} />
-                  {/* <img src={`/images/${id}.jpg`} alt={name} /> */}
+                  {/* <img src="./images/hero.jpg" alt={name} /> */}
+                  <Image
+                        src="/images/hero.jpg"
+                        alt={name}
+                        width={400}
+                        height={250}
+                  />
                   <div className={styles.cardContainer__title} >
                         <h3>{name}</h3>
                         <p>{price} هزارتومان</p>

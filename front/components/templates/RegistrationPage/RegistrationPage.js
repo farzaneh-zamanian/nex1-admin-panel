@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRegister } from '../../../hooks/mutation';
 import { useRouter } from 'next/router';
 import { validateInput } from '../../../utils/inputsValidation';
+import Image from 'next/image'
 
 
 function RegistrationPage() {
@@ -80,7 +81,12 @@ function RegistrationPage() {
                   className={RegistrationPagestyles.containerRegistrationPage}
             >
                   <span className={formStyles.containerLoginPage__logo}>
-                        <img src="/images/logoMain.svg" alt="Company Logo" />
+                        {/* <img src="/images/logoMain.svg" alt="Company Logo" /> */}
+                        <Image
+                              src="/images/logoMain.svg" alt="Company Logo"
+                              width={400}
+                              height={250}
+                        />
                   </span>
                   <h2 className={formStyles.containerLoginPage__title}>فرم ثبت نام</h2>
                   <div className={formStyles.containerLoginPage__inputGroup}>

@@ -21,11 +21,11 @@ function Hero() {
                         </p>
 
                         <div className={styles.heroContainer__heroButtonsGroup}>
-                              <Link href="/" className={styles.heroButtonsGroup__productBtn}>
+                              <Link href="/products" className={styles.heroButtonsGroup__productBtn}>
                                     <MdOutlineArrowRightAlt />
                                     <span>محصولات</span>
                               </Link>
-                              <Link href="/" className={styles.heroButtonsGroup__shoppingBtn}>
+                              <Link href="/checkout" className={styles.heroButtonsGroup__shoppingBtn}>
                                     <span>لیست خرید</span>
                               </Link>
 
@@ -35,11 +35,14 @@ function Hero() {
                   </div>
 
 
-
-
-
                   <div className={styles.heroContainer__gallery}>
-                        <img src="../../images/hero.jpg" className={styles.heroContainer__img} alt='hero-picture'/>
+                        {/* <img src="../../images/hero.jpg" className={styles.heroContainer__img} alt='hero-picture' /> */}
+                        <Image
+                              src="/images/hero.jpg"
+                              className={styles.heroContainer__img} alt='hero-picture'
+                              width={800}
+                              height={500}
+                        />
                   </div>
 
 
