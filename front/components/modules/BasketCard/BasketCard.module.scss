@@ -1,0 +1,36 @@
+@import "../../../src/styles/_variables.scss";
+.basketCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #e2e2e2;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  width: 60rem;
+  
+
+}
+.basketCardContainer img {
+  width: 5rem;
+  height: 5rem;
+}
+.productActions {
+  display: flex;
+  align-items: center;
+}
+.productActions span {
+  width: 2rem;
+  text-align: center;
+  margin: 0 0.2rem;
+}
+.productActions button {
+  background-color: $color-accent;
+  color: #fff;
+  border: none;
+  font-size: 1.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.2rem;
+  border-radius: 0.8rem;
+}

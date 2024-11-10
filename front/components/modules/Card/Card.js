@@ -6,14 +6,21 @@ import Link from 'next/link'
 import { TbListDetails } from "react-icons/tb";
 import { TbShoppingBagCheck } from "react-icons/tb";
 import { MdDeleteOutline } from "react-icons/md";
+import useCartContext from '../../../hooks/useCartContext';
+import { addProductActionCreator, decreaseProductActionCreator, deleteProductActionCreator, increaseProductActionCreator } from '@/actions/cartProducts';
+import { productItemQuantity } from '../../../utils/helpers';
 
 function Card(props) {
       const { id, name, price, quantity } = props;
+      const { state, dispatch } = useCartContext(); //CONTEXT
+      //ACTION - FIND PRODUCT QUANTITY
+      const productQuantity = productItemQuantity(state, id);
+
 
 
       // ACTION - CARD BUTTON ACTIONS
-      const cardBtnHandler = () => {
-            console.log("card")
+      const cardBtnHandler = (action) => {
+            dispatch(action( props ));
 
       };
       return (
@@ -30,26 +37,26 @@ function Card(props) {
                               <TbListDetails />
                         </Link>
                         <div>
-                              {quantity === 1 && (
-                                    <button onClick={cardBtnHandler}>
+                              {productQuantity === 1 && (
+                                    <button onClick={() => cardBtnHandler(deleteProductActionCreator)}>
                                           <MdDeleteOutline />
                                     </button>
                               )}
-                              {quantity > 1 && (
+                              {productQuantity > 1 && (
                                     <button
-                                          onClick={cardBtnHandler}
+                                          onClick={() => cardBtnHandler(decreaseProductActionCreator)}
                                     >
                                           -
                                     </button>
                               )}
-                              {!!quantity && <span>{quantity}</span>}{/* if quantity is truthy */}
-                              {quantity === 0 ? (
-                                    <button onClick={cardBtnHandler}>
+                              {!!productQuantity && <span>{productQuantity}</span>}{/* if quantity is truthy */}
+                              {productQuantity === 0 ? (
+                                    <button onClick={() => cardBtnHandler(addProductActionCreator)}>
                                           <TbShoppingBagCheck />
                                     </button>
                               ) : (
                                     <button
-                                          onClick={cardBtnHandler}
+                                          onClick={() => cardBtnHandler(increaseProductActionCreator)}
                                     >
                                           +
                                     </button>

@@ -64,7 +64,7 @@ function Header() {
                               <RxEnter />
                         </Link>)}
 
-                        <Link href="/checkOut" className={styles.iconContainer__adminIcon}>
+                        <Link href="/checkout" className={styles.iconContainer__adminIcon}>
 
                               <SlBasket />
 

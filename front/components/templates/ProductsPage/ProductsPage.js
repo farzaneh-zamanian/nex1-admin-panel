@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from "./ProductsPage.module.scss"
 import Card from '../../modules/Card/Card'
+import Loading from '../../modules/Loading/Loading'
 
 function ProductsPage({ products }) {
-      console.log(products)
+
       return (
 
             <section className={styles.productsContainer}>

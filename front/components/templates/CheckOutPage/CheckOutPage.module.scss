@@ -1,0 +1,32 @@
+@import "../../../src/styles/variables";
+
+.selectedProductInfo {
+  padding: 3rem 1rem;
+  margin:0 4rem;
+  width:90rem;
+
+  .emptyBasketContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    img {
+      width: 30%;
+    }
+    .title {
+      font-size: 1.9rem;
+      color: $color-accent;
+      font-weight: 800;
+    }
+  }
+  .basketContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-start;
+    padding:3rem;
+    border-radius: 2rem;
+    border:1px solid $color-accent;
+  }
+}
