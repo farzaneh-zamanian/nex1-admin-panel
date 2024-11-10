@@ -6,7 +6,6 @@ function SearchBar({ search, setSearch }) {
 
       const searchHandler = (e) => {
             setSearch(e.target.value)
-            console.log(search)
       }
       return (
             <form onSubmit={searchHandler} className={styles.containerSearch}>

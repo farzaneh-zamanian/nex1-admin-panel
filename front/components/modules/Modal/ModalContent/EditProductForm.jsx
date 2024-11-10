@@ -2,10 +2,12 @@ import { useState } from "react";
 import useModalContext from "../../../../hooks/useModalContext";
 import styles from "./ModalContent.module.scss";
 import { useUpdateProduct } from "../../../../hooks/mutation";
+import notifications from "../../../../utils/toastNotifications";
 
 function EditProductForm({ product }) {
   //CONTEXT
   const { closeModal } = useModalContext();
+
   // STATE - EDITED PRODUCT
   const [editedProduct, setEditedProduct] = useState({
     id:product.id,
@@ -13,8 +15,10 @@ function EditProductForm({ product }) {
     quantity: product.quantity || "",
     price: product.price || "",
   });
+
   //STATE- LOADING
   const [loading, setLoading] = useState(false);
+ 
   //MUTATION
   const { mutate } = useUpdateProduct();
 
@@ -27,7 +31,7 @@ function EditProductForm({ product }) {
       !editedProduct.quantity ||
       !editedProduct.price
     ) {
-      // alert("Please fill in all fields.");
+      notifications("error", "لطفا تمام فیلدها را پر کنید")
       return;
     }
     setLoading(true);
@@ -35,17 +39,17 @@ function EditProductForm({ product }) {
     mutate(editedProduct, {
       onSuccess: () => {
         setLoading(false);
+        notifications("UPDATE")
         closeModal();
         queryClient.invalidateQueries("/products");
       },
       onError: (error) => {
         setLoading(false);
-        // alert("Failed to update product. Please try again.");
-        console.error("Error updating product:", error.message);
+        notifications("ERROR",error)
       },
     });
   };
-
+//ACATION - CHANGE INPUTS VALUES
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setEditedProduct((editedProduct) => ({

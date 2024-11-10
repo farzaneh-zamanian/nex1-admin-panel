@@ -2,6 +2,7 @@ import { useState } from "react";
 import useModalContext from "../../../../hooks/useModalContext";
 import styles from "./ModalContent.module.scss";
 import { useCreateProduct } from "../../../../hooks/mutation";
+import notifications from "../../../../utils/toastNotifications";
 
 function AddProductForm() {
   //CONTEXT
@@ -13,8 +14,8 @@ function AddProductForm() {
     price: "",
   });
 
-    //MUTATION
-    const { mutate } = useCreateProduct();
+  //MUTATION
+  const { mutate } = useCreateProduct();
 
   //ACTION- CHANGE ON INPUT
   const changeHandler = (event) => {
@@ -26,11 +27,22 @@ function AddProductForm() {
   // ACTION - SUBMIT CREATE PRODUCT
   const addProductHandler = (event) => {
     event.preventDefault();
-    const { name, price,quantity } = form;
-    if (!name || !quantity|| !price) return;
-    mutate(form);
-    closeModal();
-  }
+    const { name, price, quantity } = form;
+    // Validate input fields
+    if (!name || !quantity || !price) return;
+    mutate(form, {
+      onSuccess: () => {
+        notifications("CREATE");
+        closeModal();
+        // Reset the form if needed
+        setForm({ name: "", quantity: "", price: "" });
+      },
+      onError: (error) => {
+        notifications("ERROR",error);
+
+      },
+    });
+  };
 
   return (
     <form className={styles.containerModal} onSubmit={addProductHandler}>

@@ -42,7 +42,7 @@ function ProductDetailsPage(props) {
 
                   </div>
                   <div className={styles.imageContainer}>
-                        <img src="/images/tShirt1.jpg" alt={name} />
+                        <img src="/images/hero.jpg" alt={name} />
                         <button onClick={handleBackClick}>
                               <FaArrowLeft />
                               بازگشت

@@ -1,6 +1,9 @@
 @import "../../../src/styles/variables";
 
 .containerProductInfo {
+  .productDetails{
+    color: $color-accent;
+  }
   .containerProductInfo__actionBtns {
     display: flex;
     align-items: center;

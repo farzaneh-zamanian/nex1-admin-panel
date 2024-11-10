@@ -1,5 +1,6 @@
 import { useDeleteProduct } from "../../../../hooks/mutation";
 import useModalContext from "../../../../hooks/useModalContext";
+import notifications from "../../../../utils/toastNotifications";
 import styles from "./ModalContent.module.scss";
 
 function DeleteProductConfirmation({ id }) {
@@ -8,11 +9,18 @@ function DeleteProductConfirmation({ id }) {
   //MUTATION
   const { mutate, isLoading } = useDeleteProduct();
 
-   //ACTION  - DELETE PRODUCT
-   const deleteHandler = () => {
-    mutate(id);
-    closeModal();
-   }
+  //ACTION  - DELETE PRODUCT
+  const deleteHandler = () => {
+    mutate(id, {
+      onSuccess: () => {
+        notifications("DELETE");
+        closeModal();
+      },
+      onError: () => {
+        notifications("ERROR");
+      },
+    });
+  };
 
   return (
     <div className={styles.containerDeleteConfirmation}>

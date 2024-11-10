@@ -4,6 +4,7 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
 import useModalContext from "../../../hooks/useModalContext";
 import ModalContainer from "../Modal/ModalContainer/ModalContainer";
+import Link from "next/link";
 
 function ProductItem({ product, index, selectedProsIds, setSelectedProsIds }) {
   const { modalType, openModal } = useModalContext();
@@ -32,7 +33,8 @@ function ProductItem({ product, index, selectedProsIds, setSelectedProsIds }) {
         />
       </td>
       <td>{index + 1}</td>
-      <td>{product.name}</td>
+      <td className={styles.productDetails}>
+        <Link href={`/products/${product.id}`}>{product.name}</Link></td>
       <td>{product.quantity}</td>
       <td>{product.price}</td>
       <td>{modifiedString(product.id)}</td>

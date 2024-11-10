@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./AdminPage.module.scss"
 import { VscTools } from "react-icons/vsc";
 import ProductItem from '../../modules/ProductItem/ProductItem';
@@ -10,6 +10,7 @@ import SearchBar from '../../modules/SearchBox/SearchBar';
 import useDebounce from '../../../hooks/useDebounce';
 import { useQueryClient } from '@tanstack/react-query';
 import Pagination from '../../modules/Pagination/Pagination';
+import notifications from '../../../utils/toastNotifications';
 
 
 function AdminPage() {
@@ -40,24 +41,42 @@ function AdminPage() {
       const { data: products, isPending, error } = useGetAllProduct(parameters);
       // Handle loading and error states
 
+
+      // Handle loading state
+      useEffect(() => {
+            if (isPending) {
+                  notifications("info","در حال بارگذاری اطلاعات");
+            }
+      }, [isPending]);
+
+      // Handle error state
+      useEffect(() => {
+            if (error) {
+                  notifications("ERROR", error);
+            }
+      }, [error]);
+
       if (products && products.data.length === 0) return <p>No products found for "{debouncedSearch}".</p>;
       if (isPending) return <p>Loading products...</p>;
       if (error) return <p>Error fetching products: {error.message}</p>;
       const queryClient = useQueryClient(); // Initialize queryClient
 
-      
+
 
       //REACT QUERY - DELTE SELECTED PRODUCTS
       const deleteCheckedProductHandler = () => {
             const data = { ids: selectedProsIds };
             mutate(data, {
-                  onSuccess: (status) => {
-                        console.log(status)
-                        // Optionally invalidate queries or update local state
+                  onSuccess: () => {
+
+                        notifications("DELETE", "محصولات انتخاب شده با موفقیت حذف شدند");
                         queryClient.invalidateQueries('/products');
+                        // Clear selected product IDs
+                        setSelectedProsIds([]);
+
                   },
                   onError: (error) => {
-                        console.error("Error deleting products:", error);
+                        notifications("ERROR", error);
                   },
             });
       };
@@ -66,8 +85,6 @@ function AdminPage() {
             <>
                   {/* SEARCH COMPONENT */}
                   <SearchBar search={search} setSearch={setSearch} />
-
-
                   {/* MANAGEMENT PRODUCTS LIST*/}
                   <section className={styles.containerProductManagement}>
                         {/* CONTROLS ON PRODUCTS */}
